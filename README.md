@@ -1,1 +1,5 @@
-Simple Pomodoro Clock
+Simple Pomodoro Clock 
+
+Using React Hooks
+SCCS
+fontawsome
