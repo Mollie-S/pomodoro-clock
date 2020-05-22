@@ -28,6 +28,22 @@ body {
     align-content: center;
 }
 
+
+#timer-display {
+    margin: 1rem;
+    padding: 2rem 0;
+    border: 0.2rem solid $color7;
+    border-radius: 20rem;
+    text-align: center;
+}
+
+
 .timer-button {
     display: flex;
+    justify-content: space-around;
+}
+
+.timer-controller {
+    display: flex;
+    justify-content: space-between;
 }

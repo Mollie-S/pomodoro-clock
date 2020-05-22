@@ -26,9 +26,28 @@ body {
       align-content: center;
 }
 
+#timer-display {
+  margin: 1rem;
+  padding: 2rem 0;
+  border: 0.2rem solid #371003ff;
+  border-radius: 20rem;
+  text-align: center;
+}
+
 .timer-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.timer-controller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=style.css.map */

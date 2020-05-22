@@ -4,7 +4,7 @@ import React from 'react';
 function Timer(props) {
   return (
     <div id='timer'>
-      ~<div id='timer-display'>
+      <div id='timer-display'>
         <div id='timer-label'>Session/Break</div>
         <div id='time-left'>{props.minutes}:{props.seconds}</div>
       </div>
