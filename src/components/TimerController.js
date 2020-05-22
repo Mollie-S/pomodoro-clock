@@ -1,19 +1,14 @@
 import React from 'react';
-import IncrementDecrementElements from './IncrementDecrementElements'
 
-function TimerController() {
+function TimerController(props) {
+  
+    
   return (
-    <div id='timer-controller'>
-        <div id='break-controller'>
-            <p id='break-label'>Break</p>
-            <div id='break-length'>5</div>
-        </div>
-        <div id='session-controller'>
-            <p id='session-label'>Session</p>
-            <div id='session-length'>25</div>
-            <IncrementDecrementElements />
-
-        </div>
+    <div id={ props.controllerId + '-controller' }>
+        <p id={ props.controllerId + '-label' }>{ props.label }</p>
+        <div id={ props.controllerId + '-length'}> { props.length }</div>
+        <button id={ props.controllerId + '-increment'} onClick={props.increment}>Up</button>
+        <button id={ props.controllerId + '-decrement'} onClick={props.decrement}>Down</button>
     </div>
   );
 }

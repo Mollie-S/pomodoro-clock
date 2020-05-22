@@ -8,12 +8,19 @@ $color5: #734c0fff;
 $color6: #542e08ff;
 $color7: #371003ff;
 
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: $primaryColor;
+    font-family: 'Patua One';
+    font-size: 1.5rem;
+    color: $color7;
 }
 
 .App {
-    width: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -21,6 +28,6 @@ body {
     align-content: center;
 }
 
-#timer-controller {
+.timer-button {
     display: flex;
 }
