@@ -6,17 +6,21 @@ import "./styles/style.scss";
 
 function App() {
   const [breakSeconds, setBreakSeconds] = useState(5);
-  const [sessionSeconds, setSessionSeconds] = useState(10);
+  const [sessionSeconds, setSessionSeconds] = useState(25);
   const [seconds, setSeconds] = useState(sessionSeconds);
-
   const [isSession, setIsSession] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
 
-  // function incrementMinutes() {
-  //   setMinutes(prevState => prevState + 1)
-  // }
-  // function decrementMinutes() {
-  //   setMinutes(prevState => prevState - 1)
-  // }
+  const handleStartStop = () => {
+    setIsRunning(!isRunning);
+  };
+
+  const reset = () => {
+    setBreakSeconds(5);
+    setSeconds(sessionSeconds);
+    setIsSession(true);
+  };
+
   let timerLabel;
   if (isSession) {
     timerLabel = "Session";
@@ -25,37 +29,50 @@ function App() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prevSeconds) => {
-        if (prevSeconds <= 0) {
-          setIsSession(!isSession);
-          return isSession ? breakSeconds : sessionSeconds;
-        } else {
-          return prevSeconds - 1;
-        }
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [isSession, breakSeconds, sessionSeconds]);
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setSeconds((prevSeconds) => {
+          if (prevSeconds <= 0) {
+            setIsSession(!isSession);
+            return isSession ? breakSeconds : sessionSeconds;
+          } else {
+            return prevSeconds - 1;
+          }
+        });
+      }, 1000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isSession, breakSeconds, sessionSeconds, isRunning]);
 
   return (
     <div className="App">
       <Header />
-      <Timer seconds={seconds} timerLabel={timerLabel} />
+      <Timer
+        seconds={seconds}
+        timerLabel={timerLabel}
+        reset={reset}
+        handleStartStop={handleStartStop}
+      />
       <div className="timer-controller">
         <TimerController
           controllerId="break"
           label="Break"
           length={breakSeconds}
-          // increment={incrementMinutes}
-          // decrement={decrementMinutes}
+          onNewValue={setBreakSeconds}
+          isRunning={isRunning}
         />
         <TimerController
           controllerId="session"
           label="Session"
           length={sessionSeconds}
-          // increment={incrementMinutes}
-          // decrement={decrementMinutes}
+          onNewValue={setSessionSeconds}
+          isRunning={isRunning}
         />
       </div>
     </div>
