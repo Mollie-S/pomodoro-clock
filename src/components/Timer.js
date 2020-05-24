@@ -5,7 +5,7 @@ function Timer(props) {
     <div id="timer">
       <div id="timer-display">
         <div id="timer-label">{props.timerLabel}</div>
-        <div id="time-left">{props.seconds}</div>
+        <div id="time-left">{props.timeDisplayed}</div>
       </div>
       <div className="timer-button">
         <button id="start_stop" onClick={props.handleStartStop}>

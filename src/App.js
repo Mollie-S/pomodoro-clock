@@ -5,38 +5,53 @@ import TimerController from "./components/TimerController";
 import "./styles/style.scss";
 
 function App() {
-  const defaultSessionSeconds = 25;
-  const defaultBreakSeconds = 5;
+  const defaultSessionMinutes = 25;
+  const defaultBreakMinutes = 5;
 
-  const [breakSeconds, setBreakSeconds] = useState(defaultBreakSeconds);
-  const [sessionSeconds, setSessionSeconds] = useState(defaultSessionSeconds);
-  const [seconds, setSeconds] = useState(defaultSessionSeconds);
+  const [breakMinutes, setBreakMinutes] = useState(defaultBreakMinutes);
+  const [sessionMinutes, setSessionMinutes] = useState(defaultSessionMinutes);
+  const [seconds, setSeconds] = useState(defaultSessionMinutes * 60);
   const [isSession, setIsSession] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
+
+  const timeDisplayed = (() => {
+    const minutesDisplayed = Math.floor(seconds / 60).toLocaleString("en", {
+      minimumIntegerDigits: 2,
+      maximumFractionDigits: 0,
+    });
+    const secondsDisplayed = (seconds - minutesDisplayed * 60).toLocaleString(
+      "en",
+      {
+        minimumIntegerDigits: 2,
+        maximumFractionDigits: 0,
+      }
+    );
+    return `${minutesDisplayed}:${secondsDisplayed}`;
+  })();
 
   const handleStartStop = () => {
     setIsRunning(!isRunning);
   };
 
   const reset = () => {
-    setBreakSeconds(defaultBreakSeconds);
-    setSessionSeconds(defaultSessionSeconds);
-    setSeconds(defaultSessionSeconds);
+    setBreakMinutes(defaultBreakMinutes);
+    setSessionMinutes(defaultSessionMinutes);
+    setSeconds(defaultSessionMinutes * 60);
     setIsSession(true);
     setIsRunning(false);
   };
 
-  const onBreakSecondsNewValue = (newValue) => {
-    setBreakSeconds(newValue);
+  const onBreakMinutesNewValue = (newValue) => {
+    setBreakMinutes(newValue);
     if (!isRunning && !isSession) {
-      setSeconds(newValue);
+      setSeconds(newValue * 60);
     }
   };
 
-  const onSessionSecondsNewValue = (newValue) => {
-    setSessionSeconds(newValue);
+  const onSessionMinutesNewValue = (newValue) => {
+    setSessionMinutes(newValue);
     if (!isRunning && isSession) {
-      setSeconds(newValue);
+      setSeconds(newValue * 60);
     }
   };
 
@@ -54,7 +69,7 @@ function App() {
         setSeconds((prevSeconds) => {
           if (prevSeconds <= 0) {
             setIsSession(!isSession);
-            return isSession ? breakSeconds : sessionSeconds;
+            return isSession ? breakMinutes * 60 : sessionMinutes * 60;
           } else {
             return prevSeconds - 1;
           }
@@ -67,13 +82,13 @@ function App() {
         clearInterval(interval);
       }
     };
-  }, [isSession, breakSeconds, sessionSeconds, isRunning]);
+  }, [isSession, breakMinutes, sessionMinutes, isRunning]);
 
   return (
     <div className="App">
       <Header />
       <Timer
-        seconds={seconds}
+        timeDisplayed={timeDisplayed}
         timerLabel={timerLabel}
         reset={reset}
         handleStartStop={handleStartStop}
@@ -82,15 +97,15 @@ function App() {
         <TimerController
           controllerId="break"
           label="Break"
-          length={breakSeconds}
-          onNewValue={onBreakSecondsNewValue}
+          length={breakMinutes}
+          onNewValue={onBreakMinutesNewValue}
           isRunning={isRunning}
         />
         <TimerController
           controllerId="session"
           label="Session"
-          length={sessionSeconds}
-          onNewValue={onSessionSecondsNewValue}
+          length={sessionMinutes}
+          onNewValue={onSessionMinutesNewValue}
           isRunning={isRunning}
         />
       </div>
