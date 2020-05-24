@@ -5,9 +5,12 @@ import TimerController from "./components/TimerController";
 import "./styles/style.scss";
 
 function App() {
-  const [breakSeconds, setBreakSeconds] = useState(5);
-  const [sessionSeconds, setSessionSeconds] = useState(25);
-  const [seconds, setSeconds] = useState(sessionSeconds);
+  const defaultSessionSeconds = 25;
+  const defaultBreakSeconds = 5;
+
+  const [breakSeconds, setBreakSeconds] = useState(defaultBreakSeconds);
+  const [sessionSeconds, setSessionSeconds] = useState(defaultSessionSeconds);
+  const [seconds, setSeconds] = useState(defaultSessionSeconds);
   const [isSession, setIsSession] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -16,9 +19,25 @@ function App() {
   };
 
   const reset = () => {
-    setBreakSeconds(5);
-    setSeconds(sessionSeconds);
+    setBreakSeconds(defaultBreakSeconds);
+    setSessionSeconds(defaultSessionSeconds);
+    setSeconds(defaultSessionSeconds);
     setIsSession(true);
+    setIsRunning(false);
+  };
+
+  const onBreakSecondsNewValue = (newValue) => {
+    setBreakSeconds(newValue);
+    if (!isRunning && !isSession) {
+      setSeconds(newValue);
+    }
+  };
+
+  const onSessionSecondsNewValue = (newValue) => {
+    setSessionSeconds(newValue);
+    if (!isRunning && isSession) {
+      setSeconds(newValue);
+    }
   };
 
   let timerLabel;
@@ -64,14 +83,14 @@ function App() {
           controllerId="break"
           label="Break"
           length={breakSeconds}
-          onNewValue={setBreakSeconds}
+          onNewValue={onBreakSecondsNewValue}
           isRunning={isRunning}
         />
         <TimerController
           controllerId="session"
           label="Session"
           length={sessionSeconds}
-          onNewValue={setSessionSeconds}
+          onNewValue={onSessionSecondsNewValue}
           isRunning={isRunning}
         />
       </div>
