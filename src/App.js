@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Timer from "./components/Timer";
 import TimerController from "./components/TimerController";
 import "./styles/style.scss";
-import BeepSound from "./components/BeepSound";
+import soundfile from "./assets/TOWERCLO.mp3";
 
 function App() {
   const defaultSessionMinutes = 25;
@@ -14,6 +14,8 @@ function App() {
   const [seconds, setSeconds] = useState(defaultSessionMinutes * 60);
   const [isSession, setIsSession] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
+
+  const beepAudioRef = useRef();
 
   const timeDisplayed = (() => {
     const minutesDisplayed = Math.floor(seconds / 60).toLocaleString("en", {
@@ -40,6 +42,8 @@ function App() {
     setSeconds(defaultSessionMinutes * 60);
     setIsSession(true);
     setIsRunning(false);
+    beepAudioRef.current.pause();
+    beepAudioRef.current.currentTime = 0;
   };
 
   const onBreakMinutesNewValue = (newValue) => {
@@ -70,6 +74,7 @@ function App() {
         setSeconds((prevSeconds) => {
           if (prevSeconds <= 0) {
             setIsSession(!isSession);
+            beepAudioRef.current.play().catch();
             return isSession ? breakMinutes * 60 : sessionMinutes * 60;
           } else {
             return prevSeconds - 1;
@@ -94,7 +99,7 @@ function App() {
         reset={reset}
         handleStartStop={handleStartStop}
       />
-      <BeepSound seconds={seconds} />
+      <audio id="beep" ref={beepAudioRef} src={soundfile}></audio>
       <div className="timer-controller">
         <TimerController
           controllerId="break"
