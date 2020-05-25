@@ -42,8 +42,11 @@ function App() {
     setSeconds(defaultSessionMinutes * 60);
     setIsSession(true);
     setIsRunning(false);
-    beepAudioRef.current.pause();
-    beepAudioRef.current.currentTime = 0;
+
+    if (!beepAudioRef.current.paused) {
+      beepAudioRef.current.pause();
+      beepAudioRef.current.currentTime = 0;
+    }
   };
 
   const onBreakMinutesNewValue = (newValue) => {
@@ -74,7 +77,8 @@ function App() {
         setSeconds((prevSeconds) => {
           if (prevSeconds <= 0) {
             setIsSession(!isSession);
-            beepAudioRef.current.play().catch();
+
+            beepAudioRef.current.play();
             return isSession ? breakMinutes * 60 : sessionMinutes * 60;
           } else {
             return prevSeconds - 1;
