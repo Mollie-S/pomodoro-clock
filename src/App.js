@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Timer from "./components/Timer";
 import TimerController from "./components/TimerController";
 import "./styles/style.scss";
+import BeepSound from "./components/BeepSound";
 
 function App() {
   const defaultSessionMinutes = 25;
@@ -93,6 +94,7 @@ function App() {
         reset={reset}
         handleStartStop={handleStartStop}
       />
+      <BeepSound seconds={seconds} />
       <div className="timer-controller">
         <TimerController
           controllerId="break"
