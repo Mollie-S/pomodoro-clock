@@ -6,8 +6,10 @@ $color4: #0c6900;
 $color5: #734c0f;
 $color6: #b61b00;
 $color7: #371003;
+$font-family-numbers: "Fira Code", monospace;
 
 @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -52,8 +54,9 @@ button {
   padding-bottom: 0.7rem;
 }
 
-#timer-left {
+#time-left {
   padding-top: 0.7rem;
+  font-family: $font-family-numbers;
 }
 
 .timer-button {
@@ -78,6 +81,11 @@ button {
 #break-label,
 #session-label {
   margin: 0;
+}
+
+#break-length,
+#session-length {
+  font-family: $font-family-numbers;
 }
 
 .spinner {
