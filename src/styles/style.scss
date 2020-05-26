@@ -1,11 +1,11 @@
 // /* HEX */
-$color1: #fff77fff;
-$primaryColor: #fbde4bff;
-$color3: #deb834ff;
-$color4: #ad8c33ff;
-$color5: #734c0fff;
-$color6: #542e08ff;
-$color7: #371003ff;
+$color1: #eaefb1;
+$primaryColor: #fdf15f;
+$color3: #ffbc4b;
+$color4: #0c6900;
+$color5: #734c0f;
+$color6: #b61b00;
+$color7: #371003;
 
 @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 * {
@@ -13,7 +13,7 @@ $color7: #371003ff;
 }
 
 body {
-  background: $primaryColor;
+  //   background: linear-gradient($primaryColor, $color3);
   font-family: "Patua One";
   font-size: 1.5rem;
   color: $color7;
@@ -30,7 +30,7 @@ body {
 button {
   padding: 0;
   border: 0;
-  background: $primaryColor;
+  background: transparent;
   font-size: 2rem;
 }
 #timer-display {
@@ -40,16 +40,40 @@ button {
   border-radius: 20rem;
   text-align: center;
   font-size: 2rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  //   background: linear-gradient($color1, $color4);
+}
+
+#timer-label {
+  padding-bottom: 0.7rem;
+}
+
+#timer-left {
+  padding-top: 0.7rem;
 }
 
 .timer-button {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+#start_stop {
+  margin-right: 0.7rem;
+}
+
+#reset {
+  margin-left: 0.7rem;
 }
 
 .timer-controller {
   display: flex;
   justify-content: space-between;
+  margin: 2rem;
+}
+
+#break-label,
+#session-label {
+  margin: 0;
 }
 
 .spinner {

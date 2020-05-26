@@ -5,10 +5,9 @@
 }
 
 body {
-  background: #fbde4bff;
   font-family: "Patua One";
   font-size: 1.5rem;
-  color: #371003ff;
+  color: #371003;
 }
 
 .App {
@@ -29,25 +28,44 @@ body {
 button {
   padding: 0;
   border: 0;
-  background: #fbde4bff;
+  background: transparent;
   font-size: 2rem;
 }
 
 #timer-display {
   margin: 1rem;
   padding: 2rem 0;
-  border: 0.2rem solid #371003ff;
+  border: 0.2rem solid #371003;
   border-radius: 20rem;
   text-align: center;
   font-size: 2rem;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+#timer-label {
+  padding-bottom: 0.7rem;
+}
+
+#timer-left {
+  padding-top: 0.7rem;
 }
 
 .timer-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#start_stop {
+  margin-right: 0.7rem;
+}
+
+#reset {
+  margin-left: 0.7rem;
 }
 
 .timer-controller {
@@ -57,6 +75,12 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 2rem;
+}
+
+#break-label,
+#session-label {
+  margin: 0;
 }
 
 .spinner {

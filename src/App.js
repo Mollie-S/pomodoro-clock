@@ -95,7 +95,14 @@ function App() {
   }, [isSession, breakMinutes, sessionMinutes, isRunning]);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={
+        !isSession
+          ? { background: "linear-gradient(#eaefb1, #B5D6B2)" }
+          : { background: "linear-gradient(#FDF15F, #ffbc4b)" }
+      }
+    >
       <Header />
       <Timer
         timeDisplayed={timeDisplayed}
@@ -103,6 +110,7 @@ function App() {
         reset={reset}
         handleStartStop={handleStartStop}
         isRunning={isRunning}
+        isSession={isSession}
       />
       <audio id="beep" ref={beepAudioRef} src={soundfile}></audio>
       <div className="timer-controller">

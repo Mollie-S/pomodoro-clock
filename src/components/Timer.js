@@ -8,7 +8,12 @@ function Timer(props) {
   return (
     <div id="timer">
       <div id="timer-display">
-        <div id="timer-label">{props.timerLabel}</div>
+        <div
+          id="timer-label"
+          style={props.isSession ? { color: "#b61b00" } : { color: "#0c6900" }}
+        >
+          {props.timerLabel}
+        </div>
         <div id="time-left">{props.timeDisplayed}</div>
       </div>
       <div className="timer-button">
