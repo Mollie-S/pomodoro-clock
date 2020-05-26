@@ -97,11 +97,11 @@ function App() {
   return (
     <div
       className="App"
-      style={
-        !isSession
-          ? { background: "linear-gradient(#eaefb1, #B5D6B2)" }
-          : { background: "linear-gradient(#FDF15F, #ffbc4b)" }
-      }
+      // style={
+      //   !isSession
+      //     ? { background: "linear-gradient(#eaefb1, #B5D6B2)" }
+      //     : { background: "linear-gradient(#FDF15F, #ffbc4b)" }
+      // }
     >
       <Header />
       <Timer

@@ -11,12 +11,16 @@ $color7: #371003;
 * {
   box-sizing: border-box;
 }
+html {
+  height: 100%;
+}
 
 body {
-  //   background: linear-gradient($primaryColor, $color3);
+  background: linear-gradient($primaryColor, $color3);
   font-family: "Patua One";
   font-size: 1.5rem;
   color: $color7;
+  height: 100%;
 }
 
 .App {

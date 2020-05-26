@@ -4,10 +4,17 @@
           box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdf15f), to(#ffbc4b));
+  background: linear-gradient(#fdf15f, #ffbc4b);
   font-family: "Patua One";
   font-size: 1.5rem;
   color: #371003;
+  height: 100%;
 }
 
 .App {
