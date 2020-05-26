@@ -102,6 +102,7 @@ function App() {
         timerLabel={timerLabel}
         reset={reset}
         handleStartStop={handleStartStop}
+        isRunning={isRunning}
       />
       <audio id="beep" ref={beepAudioRef} src={soundfile}></audio>
       <div className="timer-controller">

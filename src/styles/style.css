@@ -6,7 +6,7 @@
 
 body {
   background: #fbde4bff;
-  font-family: 'Patua One';
+  font-family: "Patua One";
   font-size: 1.5rem;
   color: #371003ff;
 }
@@ -26,12 +26,20 @@ body {
       align-content: center;
 }
 
+button {
+  padding: 0;
+  border: 0;
+  background: #fbde4bff;
+  font-size: 2rem;
+}
+
 #timer-display {
   margin: 1rem;
   padding: 2rem 0;
   border: 0.2rem solid #371003ff;
   border-radius: 20rem;
   text-align: center;
+  font-size: 2rem;
 }
 
 .timer-button {
@@ -49,5 +57,19 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.spinner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

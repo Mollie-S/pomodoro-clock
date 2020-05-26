@@ -1,4 +1,8 @@
 import React from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+library.add(faSyncAlt, faPlay, faPause);
 
 function Timer(props) {
   return (
@@ -9,10 +13,10 @@ function Timer(props) {
       </div>
       <div className="timer-button">
         <button id="start_stop" onClick={props.handleStartStop}>
-          Start/Stop
+          <FontAwesomeIcon icon={!props.isRunning ? faPlay : faPause} />
         </button>
         <button id="reset" onClick={props.reset}>
-          Reset
+          <FontAwesomeIcon icon={faSyncAlt} />
         </button>
       </div>
     </div>

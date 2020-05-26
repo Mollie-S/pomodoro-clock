@@ -1,4 +1,3 @@
-
 // /* HEX */
 $color1: #fff77fff;
 $primaryColor: #fbde4bff;
@@ -8,42 +7,54 @@ $color5: #734c0fff;
 $color6: #542e08ff;
 $color7: #371003ff;
 
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: $primaryColor;
-    font-family: 'Patua One';
-    font-size: 1.5rem;
-    color: $color7;
+  background: $primaryColor;
+  font-family: "Patua One";
+  font-size: 1.5rem;
+  color: $color7;
 }
 
 .App {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-
+button {
+  padding: 0;
+  border: 0;
+  background: $primaryColor;
+  font-size: 2rem;
+}
 #timer-display {
-    margin: 1rem;
-    padding: 2rem 0;
-    border: 0.2rem solid $color7;
-    border-radius: 20rem;
-    text-align: center;
+  margin: 1rem;
+  padding: 2rem 0;
+  border: 0.2rem solid $color7;
+  border-radius: 20rem;
+  text-align: center;
+  font-size: 2rem;
 }
-
 
 .timer-button {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .timer-controller {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+.spinner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
