@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e313c963766ea35322055f9b7e926a67",
+    "revision": "2caa953867aa2555edcb4a3e156977bd",
     "url": "/pomodoro-clock/index.html"
   },
   {
-    "revision": "a068a8599647c8a66ef9",
-    "url": "/pomodoro-clock/static/css/main.a3b269d4.chunk.css"
+    "revision": "c392c8515835255ea352",
+    "url": "/pomodoro-clock/static/css/main.c52e494d.chunk.css"
   },
   {
     "revision": "c47430d0651337df9f98",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pomodoro-clock/static/js/2.ffa170cf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a068a8599647c8a66ef9",
+    "revision": "c392c8515835255ea352",
     "url": "/pomodoro-clock/static/js/main.1dd2be95.chunk.js"
   },
   {
